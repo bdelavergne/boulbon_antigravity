@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chateau de Boulbon | Provence</title>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+  <link rel="icon" href="./src/assets/favicon.png" type="image/png">
+  <script type="module" src="./src/scripts/main.js"></script>
+</head>
+
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Chateau de Boulbon</a>
+    <div class="nav-links">
+      <a href="/history.html" class="nav-link">
+        <span data-lang="en">History</span>
+        <span data-lang="fr">Histoire</span>
+      </a>
+      <a href="/agenda.html" class="nav-link">
+        <span data-lang="en">Agenda</span>
+        <span data-lang="fr">Agenda</span>
+      </a>
+      <a href="/contact.html" class="nav-link">
+        <span data-lang="en">Contact</span>
+        <span data-lang="fr">Contact</span>
+      </a>
+      <div class="lang-toggle" id="langToggle">
+        <span class="lang-option" data-lang-btn="en">EN</span>
+        <span>/</span>
+        <span class="lang-option" data-lang-btn="fr">FR</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media">
+        <img src="./src/assets/Chateau_de_Boulbon.jpg" alt="Chateau de Boulbon" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1>
+          <span data-lang="en">Timeless Provence</span>
+          <span data-lang="fr">Provence Intemporelle</span>
+        </h1>
+        <p>
+          <span data-lang="en">Between Arles & Avignon</span>
+          <span data-lang="fr">Entre Arles et Avignon</span>
+        </p>
+      </div>
+      <div class="hero-discover">
+        <span data-lang="en">Discover</span>
+        <span data-lang="fr">Découvrir</span>
+      </div>
+      <div class="scroll-indicator"><span class="arrow"></span></div>
+      <div class="hero-discover">
+        <span data-lang="en">Discover</span>
+        <span data-lang="fr">Découvrir</span>
+      </div>
+      <div class="scroll-indicator"><span class="arrow"></span></div>
+    </section>
+
+    <section class="section intro">
+      <div class="container">
+        <div class="intro-content">
+          <h2>
+            <span data-lang="en">More than a monument, a family home.</span>
+            <span data-lang="fr">Plus qu'un monument, une maison de famille.</span>
+          </h2>
+          <p class="intro-lead">
+            <span data-lang="en">
+              Anchored in history, we open our doors to share this heritage through public visits, cultural events, and
+              exclusive private gatherings.
+            </span>
+            <span data-lang="fr">
+              Ancrée dans l'histoire, nous ouvrons nos portes pour partager ce patrimoine à travers des visites
+              publiques, des événements culturels et des réceptions privées.
+            </span>
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1: Heritage -->
+          <a href="/history.html" class="pillar-card">
+            <div class="pillar-image">
+              <img src="./src/assets/Chapelle_Saint_Marcellin_et_moulin_Bonnet_à_Boulbon.JPG" alt="Heritage" />
+            </div>
+            <div class="pillar-text">
+              <h3>
+                <span data-lang="en">The Legacy</span>
+                <span data-lang="fr">L'Héritage</span>
+              </h3>
+              <p>
+                <span data-lang="en">Explore 1000 years of history.</span>
+                <span data-lang="fr">Explorez 1000 ans d'histoire.</span>
+              </p>
+              <span class="btn-link">
+                <span data-lang="en">Visit</span>
+                <span data-lang="fr">Visiter</span>
+                &rarr;
+              </span>
+            </div>
+          </a>
+
+          <!-- Pillar 2: Culture -->
+          <a href="/agenda.html" class="pillar-card">
+            <div class="pillar-image">
+              <img src="./src/assets/night ambiance.jpg" alt="Culture" />
+            </div>
+            <div class="pillar-text">
+              <h3>
+                <span data-lang="en">The Season</span>
+                <span data-lang="fr">La Saison</span>
+              </h3>
+              <p>
+                <span data-lang="en">Concerts, festivals, and artistic encounters.</span>
+                <span data-lang="fr">Concerts, festivals et rencontres artistiques.</span>
+              </p>
+              <span class="btn-link">
+                <span data-lang="en">Agenda</span>
+                <span data-lang="fr">Agenda</span>
+                &rarr;
+              </span>
+            </div>
+          </a>
+
+          <!-- Pillar 3: Private Events -->
+          <a href="/contact.html" class="pillar-card">
+            <div class="pillar-image">
+              <img src="./src/assets/sunset.jpeg" alt="Private Events" />
+            </div>
+            <div class="pillar-text">
+              <h3>
+                <span data-lang="en">Hospitality</span>
+                <span data-lang="fr">L'Hospitalité</span>
+              </h3>
+              <p>
+                <span data-lang="en">A unique setting for your exclusive moments.</span>
+                <span data-lang="fr">Un cadre unique pour vos moments d'exception.</span>
+              </p>
+              <span class="btn-link">
+                <span data-lang="en">Inquire</span>
+                <span data-lang="fr">Réserver</span>
+                &rarr;
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Chateau de Boulbon. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Page-specific styles for Home */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-media img,
+    .hero-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      /* Slight darken for text readability */
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease forwards 0.5s;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .intro-text {
+      text-align: left;
+    }
+
+    .intro-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--color-text);
+    }
+
+    .intro-text p {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: #555;
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .intro-image {
+        order: -1;
+        /* Image first on mobile */
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</body>
+
+</html>

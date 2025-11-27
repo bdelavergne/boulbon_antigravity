@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Chateau de Boulbon</title>
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="icon" href="./src/assets/favicon.png" type="image/png">
+    <script type="module" src="./src/scripts/main.js"></script>
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">Chateau de Boulbon</a>
+        <div class="nav-links">
+            <a href="/history.html" class="nav-link">
+                <span data-lang="en">History</span>
+                <span data-lang="fr">Histoire</span>
+            </a>
+            <a href="/agenda.html" class="nav-link">
+                <span data-lang="en">Agenda</span>
+                <span data-lang="fr">Agenda</span>
+            </a>
+            <a href="/contact.html" class="nav-link">
+                <span data-lang="en">Contact</span>
+                <span data-lang="fr">Contact</span>
+            </a>
+            <div class="lang-toggle" id="langToggle">
+                <span class="lang-option" data-lang-btn="en">EN</span>
+                <span>/</span>
+                <span class="lang-option" data-lang-btn="fr">FR</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section header-section" style="background-image: url('./src/assets/sunset.jpeg');">
+            <div class="header-overlay"></div>
+            <div class="container relative-z">
+                <h1>
+                    <span data-lang="en">Inquiries</span>
+                    <span data-lang="fr">Demandes</span>
+                </h1>
+                <p class="subtitle">
+                    <span data-lang="en">Weddings, Shootings & Private Events</span>
+                    <span data-lang="fr">Mariages, Tournages & Événements Privés</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>
+                            <span data-lang="en">Get in Touch</span>
+                            <span data-lang="fr">Contactez-nous</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">For all booking inquiries, please contact us using the form or the
+                                details below. Visits are available by appointment only.</span>
+                            <span data-lang="fr">Pour toute demande de réservation, veuillez nous contacter via le
+                                formulaire ou les coordonnées ci-dessous. Visites sur rendez-vous uniquement.</span>
+                        </p>
+                        <div class="info-item">
+                            <strong>Email</strong><br>
+                            contact@chateauboulbon.com
+                        </div>
+                        <div class="info-item">
+                            <strong>
+                                <span data-lang="en">Address</span>
+                                <span data-lang="fr">Adresse</span>
+                            </strong><br>
+                            Chateau de Boulbon<br>
+                            13150 Boulbon, France
+                        </div>
+                    </div>
+
+                    <form class="contact-form"
+                        onsubmit="event.preventDefault(); alert('Thank you for your inquiry. We will be in touch shortly.');">
+                        <div class="form-group">
+                            <label for="name">
+                                <span data-lang="en">Name</span>
+                                <span data-lang="fr">Nom</span>
+                            </label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">
+                                <span data-lang="en">Inquiry Type</span>
+                                <span data-lang="fr">Type de Demande</span>
+                            </label>
+                            <select id="type">
+                                <option value="general">
+                                    General Inquiry / Demande Générale
+                                </option>
+                                <option value="wedding">
+                                    Wedding / Mariage
+                                </option>
+                                <option value="shooting">
+                                    Photo/Video Shoot / Tournage
+                                </option>
+                                <option value="event">
+                                    Private Event / Événement Privé
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">
+                            <span data-lang="en">Send Message</span>
+                            <span data-lang="fr">Envoyer</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chateau de Boulbon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .header-section {
+            padding: 150px 0;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .relative-z {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-text);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</body>
+
+</html>
