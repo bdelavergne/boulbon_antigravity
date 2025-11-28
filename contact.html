@@ -11,115 +11,88 @@
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="navbar">
         <a href="/" class="nav-logo">Chateau de Boulbon</a>
-        <div class="nav-links">
-            <a href="/history.html" class="nav-link">
-                <span data-lang="en">History</span>
-                <span data-lang="fr">Histoire</span>
-            </a>
-            <a href="/agenda.html" class="nav-link">
-                <span data-lang="en">Agenda</span>
-                <span data-lang="fr">Agenda</span>
-            </a>
-            <a href="/contact.html" class="nav-link">
-                <span data-lang="en">Contact</span>
-                <span data-lang="fr">Contact</span>
-            </a>
-            <div class="lang-toggle" id="langToggle">
-                <span class="lang-option" data-lang-btn="en">EN</span>
-                <span>/</span>
-                <span class="lang-option" data-lang-btn="fr">FR</span>
-            </div>
+        <div class="lang-toggle">
+            <span data-lang-btn="en" class="active">EN</span>
+            <span data-lang-btn="fr">FR</span>
         </div>
     </nav>
 
-    <main>
-        <section class="section header-section" style="background-image: url('./src/assets/sunset.jpeg');">
-            <div class="header-overlay"></div>
-            <div class="container relative-z">
-                <h1>
-                    <span data-lang="en">Inquiries</span>
-                    <span data-lang="fr">Demandes</span>
-                </h1>
-                <p class="subtitle">
-                    <span data-lang="en">Weddings, Shootings & Private Events</span>
-                    <span data-lang="fr">Mariages, Tournages & Événements Privés</span>
-                </p>
-            </div>
-        </section>
+    <header class="hero" style="height: 60vh; min-height: 400px;">
+        <img src="./src/assets/sunset.jpeg" alt="Contact Header" class="hero-bg">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span data-lang="en">Contact</span>
+                <span data-lang="fr">Contact</span>
+            </h1>
+        </div>
+    </header>
 
-        <section class="section contact-section">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>
-                            <span data-lang="en">Get in Touch</span>
-                            <span data-lang="fr">Contactez-nous</span>
-                        </h3>
-                        <p>
-                            <span data-lang="en">For all booking inquiries, please contact us using the form or the
-                                details below. Visits are available by appointment only.</span>
-                            <span data-lang="fr">Pour toute demande de réservation, veuillez nous contacter via le
-                                formulaire ou les coordonnées ci-dessous. Visites sur rendez-vous uniquement.</span>
-                        </p>
-                        <div class="info-item">
-                            <strong>Email</strong><br>
-                            contact@chateauboulbon.com
-                        </div>
-                        <div class="info-item">
-                            <strong>
-                                <span data-lang="en">Address</span>
-                                <span data-lang="fr">Adresse</span>
-                            </strong><br>
-                            Chateau de Boulbon<br>
-                            13150 Boulbon, France
-                        </div>
+    <main>
+        <section class="section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>
+                        <span data-lang="en">Get in Touch</span>
+                        <span data-lang="fr">Nous Contacter</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">For private events, shoots, or general inquiries.</span>
+                        <span data-lang="fr">Pour événements privés, tournages ou renseignements généraux.</span>
+                    </p>
+
+                    <div class="info-item">
+                        <strong>Email</strong><br>
+                        <a href="mailto:contact@chateauboulbon.com">contact@chateauboulbon.com</a>
                     </div>
 
-                    <form class="contact-form"
-                        onsubmit="event.preventDefault(); alert('Thank you for your inquiry. We will be in touch shortly.');">
-                        <div class="form-group">
-                            <label for="name">
-                                <span data-lang="en">Name</span>
-                                <span data-lang="fr">Nom</span>
-                            </label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="type">
-                                <span data-lang="en">Inquiry Type</span>
-                                <span data-lang="fr">Type de Demande</span>
-                            </label>
-                            <select id="type">
-                                <option value="general">
-                                    General Inquiry / Demande Générale
-                                </option>
-                                <option value="wedding">
-                                    Wedding / Mariage
-                                </option>
-                                <option value="shooting">
-                                    Photo/Video Shoot / Tournage
-                                </option>
-                                <option value="event">
-                                    Private Event / Événement Privé
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">
-                            <span data-lang="en">Send Message</span>
-                            <span data-lang="fr">Envoyer</span>
-                        </button>
-                    </form>
+                    <div class="info-item">
+                        <strong>Phone</strong><br>
+                        <a href="tel:+33490000000">+33 4 90 00 00 00</a>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Address</strong><br>
+                        Chateau de Boulbon<br>
+                        13150 Boulbon, France
+                    </div>
                 </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">
+                            <span data-lang="en">Name</span>
+                            <span data-lang="fr">Nom</span>
+                        </label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">
+                            <span data-lang="en">Subject</span>
+                            <span data-lang="fr">Sujet</span>
+                        </label>
+                        <select id="subject" name="subject">
+                            <option value="general">General Inquiry</option>
+                            <option value="events">Private Event</option>
+                            <option value="press">Press/Shoot</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="width: 100%; background: black; color: white; border: none; padding: 1rem; cursor: pointer;">
+                        <span data-lang="en">Send Message</span>
+                        <span data-lang="fr">Envoyer</span>
+                    </button>
+                </form>
+            </div>
             </div>
         </section>
     </main>

@@ -11,189 +11,131 @@
 </head>
 
 <body>
-    <nav class="nav">
+    <nav class="navbar">
         <a href="/" class="nav-logo">Chateau de Boulbon</a>
-        <div class="nav-links">
-            <a href="/history.html" class="nav-link">
-                <span data-lang="en">History</span>
-                <span data-lang="fr">Histoire</span>
-            </a>
-            <a href="/agenda.html" class="nav-link">
-                <span data-lang="en">Agenda</span>
-                <span data-lang="fr">Agenda</span>
-            </a>
-            <a href="/contact.html" class="nav-link">
-                <span data-lang="en">Contact</span>
-                <span data-lang="fr">Contact</span>
-            </a>
-            <div class="lang-toggle" id="langToggle">
-                <span class="lang-option" data-lang-btn="en">EN</span>
-                <span>/</span>
-                <span class="lang-option" data-lang-btn="fr">FR</span>
-            </div>
+        <div class="lang-toggle">
+            <span data-lang-btn="en" class="active">EN</span>
+            <span data-lang-btn="fr">FR</span>
         </div>
     </nav>
 
+    <header class="hero" style="height: 60vh; min-height: 400px;">
+        <img src="./src/assets/olives.jpeg" alt="Agenda Header" class="hero-bg">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span data-lang="en">Agenda</span>
+                <span data-lang="fr">Agenda</span>
+            </h1>
+        </div>
+    </header>
+
     <main>
-        <section class="section header-section" style="background-image: url('./src/assets/night ambiance.jpg');">
-            <div class="header-overlay"></div>
-            <div class="container relative-z">
-                <h1>
-                    <span data-lang="en">Cultural Season 2025</span>
-                    <span data-lang="fr">Saison Culturelle 2025</span>
-                </h1>
-                <p class="subtitle">
-                    <span data-lang="en">Curated events in a historic setting.</span>
-                    <span data-lang="fr">Événements curatés dans un cadre historique.</span>
-                </p>
+        <section class="section" style="padding-top: 0;">
+            <div class="magazine-layout">
+                <!-- Event 1 -->
+                <article class="magazine-item">
+                    <div class="event-image">
+                        <img src="./src/assets/theatre_stage.png" alt="Antigone">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="day">12</span>
+                            <span class="month">JUL</span>
+                        </div>
+                        <h3>
+                            <span data-lang="en">Antigone by Sophocles</span>
+                            <span data-lang="fr">Antigone de Sophocle</span>
+                        </h3>
+                        <p class="event-desc">
+                            <span data-lang="en">A special performance of "Antigone" in the main courtyard. The ancient
+                                stones provide natural acoustic amplification for this powerful tragedy.</span>
+                            <span data-lang="fr">Une représentation spéciale d'"Antigone" dans la cour d'honneur.
+                                Les pierres anciennes offrent une amplification acoustique naturelle pour cette
+                                tragédie puissante.</span>
+                        </p>
+                        <div class="event-meta">
+                            <span class="event-tag">
+                                <span data-lang="en">Public • Ticketed</span>
+                                <span data-lang="fr">Public • Billetterie</span>
+                            </span>
+                            <span class="status-sold-out">
+                                <span data-lang="en">Sold Out</span>
+                                <span data-lang="fr">Complet</span>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event 3 -->
+                <article class="magazine-item">
+                    <div class="event-image">
+                        <img src="./src/assets/provence_landscape.png" alt="Jazz & Wine">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month">AUG</span>
+                        </div>
+                        <h3>
+                            <span data-lang="en">Jazz & Wine Tasting</span>
+                            <span data-lang="fr">Dégustation Jazz & Vin</span>
+                        </h3>
+                        <p class="event-desc">
+                            <span data-lang="en">Local vineyards present their best vintages accompanied by a jazz
+                                trio. A sensory journey through the terroir of Provence.</span>
+                            <span data-lang="fr">Les vignobles locaux présentent leurs meilleurs millésimes
+                                accompagnés d'un trio de jazz. Un voyage sensoriel à travers le terroir de
+                                Provence.</span>
+                        </p>
+                        <div class="event-meta">
+                            <span class="event-tag">
+                                <span data-lang="en">Public</span>
+                                <span data-lang="fr">Public</span>
+                            </span>
+                            <a href="/contact.html" class="btn-link">
+                                <span data-lang="en">Book Tickets &rarr;</span>
+                                <span data-lang="fr">Réserver &rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event 4 -->
+                <article class="magazine-item">
+                    <div class="event-image">
+                        <img src="./src/assets/night ambiance.jpg" alt="Fashion Week">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="day">05</span>
+                            <span class="month">SEP</span>
+                        </div>
+                        <h3>
+                            <span data-lang="en">Fashion Week: Runway Show</span>
+                            <span data-lang="fr">Fashion Week : Défilé</span>
+                        </h3>
+                        <p class="event-desc">
+                            <span data-lang="en">Presentation of the new Fall collection. The brutalist architecture
+                                of the castle contrasts with the delicate fabrics in this invitation-only
+                                showcase.</span>
+                            <span data-lang="fr">Présentation de la nouvelle collection Automne. L'architecture
+                                brutaliste du château contraste avec les tissus délicats lors de cette présentation
+                                sur invitation.</span>
+                        </p>
+                        <div class="event-meta">
+                            <span class="event-tag">
+                                <span data-lang="en">Invitation Only</span>
+                                <span data-lang="fr">Sur Invitation</span>
+                            </span>
+                            <span class="status-private">
+                                <span data-lang="en">Private</span>
+                                <span data-lang="fr">Privé</span>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
-        </section>
-
-        <section class="section agenda-section">
-            <div class="container">
-                <div class="magazine-layout">
-
-                    <!-- Event 1 -->
-                    <article class="magazine-item">
-                        <div class="event-image">
-                            <img src="./src/assets/Chateau_de_Boulbon.jpg" alt="Rencontres d'Arles Dinner">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <span class="day">12</span>
-                                <span class="month">JUL</span>
-                            </div>
-                            <h3>
-                                <span data-lang="en">Rencontres d'Arles: Opening Dinner</span>
-                                <span data-lang="fr">Rencontres d'Arles : Dîner d'Ouverture</span>
-                            </h3>
-                            <p class="event-desc">
-                                <span data-lang="en">An exclusive evening celebrating photography under the stars. Join
-                                    artists and collectors for a gastronomic experience in the heart of the
-                                    fortress.</span>
-                                <span data-lang="fr">Une soirée exclusive célébrant la photographie sous les étoiles.
-                                    Rejoignez artistes et collectionneurs pour une expérience gastronomique au cœur de
-                                    la forteresse.</span>
-                            </p>
-                            <div class="event-meta">
-                                <span class="event-tag">
-                                    <span data-lang="en">Private Event</span>
-                                    <span data-lang="fr">Événement Privé</span>
-                                </span>
-                                <a href="/contact.html" class="btn-link">
-                                    <span data-lang="en">Inquire &rarr;</span>
-                                    <span data-lang="fr">Se Renseigner &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Event 2 -->
-                    <article class="magazine-item">
-                        <div class="event-image">
-                            <img src="./src/assets/Chapelle_Saint_Marcellin_et_moulin_Bonnet_à_Boulbon.JPG"
-                                alt="Avignon Festival Theatre">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <span class="day">24</span>
-                                <span class="month">JUL</span>
-                            </div>
-                            <h3>
-                                <span data-lang="en">Avignon Festival: Theatre in the Courtyard</span>
-                                <span data-lang="fr">Festival d'Avignon : Théâtre dans la Cour</span>
-                            </h3>
-                            <p class="event-desc">
-                                <span data-lang="en">A special performance of "Antigone" in the castle's main courtyard.
-                                    The ancient stones provide a natural acoustic amplification for this powerful
-                                    tragedy.</span>
-                                <span data-lang="fr">Une représentation spéciale d'"Antigone" dans la cour d'honneur.
-                                    Les pierres anciennes offrent une amplification acoustique naturelle pour cette
-                                    tragédie puissante.</span>
-                            </p>
-                            <div class="event-meta">
-                                <span class="event-tag">
-                                    <span data-lang="en">Public • Ticketed</span>
-                                    <span data-lang="fr">Public • Billetterie</span>
-                                </span>
-                                <span class="status-sold-out">
-                                    <span data-lang="en">Sold Out</span>
-                                    <span data-lang="fr">Complet</span>
-                                </span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Event 3 -->
-                    <article class="magazine-item">
-                        <div class="event-image">
-                            <img src="./src/assets/olives.jpeg" alt="Jazz & Wine">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <span class="day">15</span>
-                                <span class="month">AUG</span>
-                            </div>
-                            <h3>
-                                <span data-lang="en">Jazz & Wine Tasting</span>
-                                <span data-lang="fr">Dégustation Jazz & Vin</span>
-                            </h3>
-                            <p class="event-desc">
-                                <span data-lang="en">Local vineyards present their best vintages accompanied by a jazz
-                                    trio. A sensory journey through the terroir of Provence.</span>
-                                <span data-lang="fr">Les vignobles locaux présentent leurs meilleurs millésimes
-                                    accompagnés d'un trio de jazz. Un voyage sensoriel à travers le terroir de
-                                    Provence.</span>
-                            </p>
-                            <div class="event-meta">
-                                <span class="event-tag">
-                                    <span data-lang="en">Public</span>
-                                    <span data-lang="fr">Public</span>
-                                </span>
-                                <a href="/contact.html" class="btn-link">
-                                    <span data-lang="en">Book Tickets &rarr;</span>
-                                    <span data-lang="fr">Réserver &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Event 4 -->
-                    <article class="magazine-item">
-                        <div class="event-image">
-                            <img src="./src/assets/night ambiance.jpg" alt="Fashion Week">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <span class="day">05</span>
-                                <span class="month">SEP</span>
-                            </div>
-                            <h3>
-                                <span data-lang="en">Fashion Week: Runway Show</span>
-                                <span data-lang="fr">Fashion Week : Défilé</span>
-                            </h3>
-                            <p class="event-desc">
-                                <span data-lang="en">Presentation of the new Fall collection. The brutalist architecture
-                                    of the castle contrasts with the delicate fabrics in this invitation-only
-                                    showcase.</span>
-                                <span data-lang="fr">Présentation de la nouvelle collection Automne. L'architecture
-                                    brutaliste du château contraste avec les tissus délicats lors de cette présentation
-                                    sur invitation.</span>
-                            </p>
-                            <div class="event-meta">
-                                <span class="event-tag">
-                                    <span data-lang="en">Invitation Only</span>
-                                    <span data-lang="fr">Sur Invitation</span>
-                                </span>
-                                <span class="status-private">
-                                    <span data-lang="en">Private</span>
-                                    <span data-lang="fr">Privé</span>
-                                </span>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
             </div>
         </section>
     </main>
