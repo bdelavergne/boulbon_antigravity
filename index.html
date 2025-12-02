@@ -13,6 +13,11 @@
 <body>
   <nav class="navbar">
     <a href="/" class="nav-logo">Chateau de Boulbon</a>
+    <div class="nav-links">
+      <a href="/history.html"><span data-lang="en">History</span><span data-lang="fr">Histoire</span></a>
+      <a href="/agenda.html"><span data-lang="en">Agenda</span><span data-lang="fr">Agenda</span></a>
+      <a href="/contact.html"><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a>
+    </div>
     <div class="lang-toggle">
       <span data-lang-btn="en" class="active">EN</span>
       <span data-lang-btn="fr">FR</span>
@@ -96,6 +101,123 @@
       <span>&copy; 2025 Chateau de Boulbon</span>
     </div>
   </footer>
+  <script type="module">
+    import { getHomePage, urlFor } from './src/scripts/sanity.js';
+
+    async function loadHomePage() {
+      try {
+        const home = await getHomePage();
+        if (!home) return;
+
+        // Hero
+        if (home.hero) {
+          if (home.hero.image) {
+            document.querySelector('.hero-bg').src = urlFor(home.hero.image).width(1920).url();
+          }
+          if (home.hero.title) {
+            document.querySelector('.hero-title [data-lang="en"]').textContent = home.hero.title.en;
+            document.querySelector('.hero-title [data-lang="fr"]').textContent = home.hero.title.fr;
+          }
+          if (home.hero.subtitle) {
+            document.querySelector('.hero-subtitle [data-lang="en"]').textContent = home.hero.subtitle.en;
+            document.querySelector('.hero-subtitle [data-lang="fr"]').textContent = home.hero.subtitle.fr;
+          }
+        }
+
+        // Page Builder Modules
+        if (home.modules && home.modules.length > 0) {
+          // Find the container where modules should be injected.
+          // In this design, modules come AFTER the hero.
+          // We need to clear existing static content (interlude + pillars) first.
+          const interludeStatic = document.querySelector('.image-break');
+          if (interludeStatic) interludeStatic.remove();
+
+          const pillarsStatic = document.querySelector('.pillars-grid');
+          if (pillarsStatic) pillarsStatic.remove();
+
+          const mainContainer = document.querySelector('body');
+          const footer = document.querySelector('.footer');
+
+          home.modules.forEach(module => {
+            if (module._type === 'interludeSection') {
+              const section = document.createElement('div');
+              section.className = 'image-break parallax-bg';
+              section.style.height = '40vh';
+              if (module.image) {
+                section.style.backgroundImage = `url(${urlFor(module.image).width(1920).url()})`;
+              }
+              mainContainer.insertBefore(section, footer);
+            } else if (module._type === 'pillarsSection') {
+              const section = document.createElement('section');
+              section.className = 'pillars-grid';
+
+              if (module.pillars) {
+                module.pillars.forEach(pillar => {
+                  const link = pillar.link || '#';
+                  const card = document.createElement('a');
+                  card.href = link;
+                  card.className = 'pillar-card';
+
+                  if (pillar.image) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'pillar-image-container';
+                    const img = document.createElement('img');
+                    img.src = urlFor(pillar.image).width(800).height(800).url(); // Square crop
+                    img.alt = pillar.title ? (pillar.title.en || pillar.title.fr) : 'Pillar Image';
+                    imgContainer.appendChild(img);
+                    card.appendChild(imgContainer);
+                  }
+
+                  let titleHtml = '';
+                  if (pillar.title) {
+                    titleHtml = `<h3>
+                                    <span data-lang="en">${pillar.title.en}</span>
+                                    <span data-lang="fr">${pillar.title.fr}</span>
+                                </h3>`;
+                  }
+
+                  let descHtml = '';
+                  if (pillar.description) {
+                    descHtml = `<p>
+                                    <span data-lang="en">${pillar.description.en}</span>
+                                    <span data-lang="fr">${pillar.description.fr}</span>
+                                </p>`;
+                  }
+
+                  const textContainer = document.createElement('div');
+                  textContainer.innerHTML = titleHtml + descHtml;
+                  card.appendChild(textContainer);
+
+                  section.appendChild(card);
+                });
+              }
+              mainContainer.insertBefore(section, footer);
+            } else if (module._type === 'textSection') {
+              const section = document.createElement('section');
+              section.className = 'section';
+              section.style.minHeight = 'auto'; // Override min-height for text sections
+              section.style.padding = '4rem 2rem';
+
+              if (module.content) {
+                section.innerHTML = `
+                        <div class="section-text" style="margin-bottom: 0;">
+                            <span data-lang="en">${module.content.en ? module.content.en.replace(/\n/g, '<br>') : ''}</span>
+                            <span data-lang="fr">${module.content.fr ? module.content.fr.replace(/\n/g, '<br>') : ''}</span>
+                        </div>
+                    `;
+              }
+              mainContainer.insertBefore(section, footer);
+            }
+          });
+        }
+
+      } catch (error) {
+        console.error('Error loading home page:', error);
+      }
+    }
+
+    loadHomePage();
+  </script>
 </body>
 
 </html>

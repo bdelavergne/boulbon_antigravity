@@ -13,6 +13,11 @@
 <body>
     <nav class="navbar">
         <a href="/" class="nav-logo">Chateau de Boulbon</a>
+        <div class="nav-links">
+            <a href="/history.html"><span data-lang="en">History</span><span data-lang="fr">Histoire</span></a>
+            <a href="/agenda.html"><span data-lang="en">Agenda</span><span data-lang="fr">Agenda</span></a>
+            <a href="/contact.html"><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a>
+        </div>
         <div class="lang-toggle">
             <span data-lang-btn="en" class="active">EN</span>
             <span data-lang-btn="fr">FR</span>
@@ -31,114 +36,88 @@
 
     <main>
         <section class="section" style="padding-top: 0;">
-            <div class="magazine-layout">
-                <!-- Event 1 -->
-                <article class="magazine-item">
-                    <div class="event-image">
-                        <img src="./src/assets/theatre_stage.png" alt="Antigone">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-date">
-                            <span class="day">12</span>
-                            <span class="month">JUL</span>
-                        </div>
-                        <h3>
-                            <span data-lang="en">Antigone by Sophocles</span>
-                            <span data-lang="fr">Antigone de Sophocle</span>
-                        </h3>
-                        <p class="event-desc">
-                            <span data-lang="en">A special performance of "Antigone" in the main courtyard. The ancient
-                                stones provide natural acoustic amplification for this powerful tragedy.</span>
-                            <span data-lang="fr">Une représentation spéciale d'"Antigone" dans la cour d'honneur.
-                                Les pierres anciennes offrent une amplification acoustique naturelle pour cette
-                                tragédie puissante.</span>
-                        </p>
-                        <div class="event-meta">
-                            <span class="event-tag">
-                                <span data-lang="en">Public • Ticketed</span>
-                                <span data-lang="fr">Public • Billetterie</span>
-                            </span>
-                            <span class="status-sold-out">
-                                <span data-lang="en">Sold Out</span>
-                                <span data-lang="fr">Complet</span>
-                            </span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Event 3 -->
-                <article class="magazine-item">
-                    <div class="event-image">
-                        <img src="./src/assets/provence_landscape.png" alt="Jazz & Wine">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-date">
-                            <span class="day">15</span>
-                            <span class="month">AUG</span>
-                        </div>
-                        <h3>
-                            <span data-lang="en">Jazz & Wine Tasting</span>
-                            <span data-lang="fr">Dégustation Jazz & Vin</span>
-                        </h3>
-                        <p class="event-desc">
-                            <span data-lang="en">Local vineyards present their best vintages accompanied by a jazz
-                                trio. A sensory journey through the terroir of Provence.</span>
-                            <span data-lang="fr">Les vignobles locaux présentent leurs meilleurs millésimes
-                                accompagnés d'un trio de jazz. Un voyage sensoriel à travers le terroir de
-                                Provence.</span>
-                        </p>
-                        <div class="event-meta">
-                            <span class="event-tag">
-                                <span data-lang="en">Public</span>
-                                <span data-lang="fr">Public</span>
-                            </span>
-                            <a href="/contact.html" class="btn-link">
-                                <span data-lang="en">Book Tickets &rarr;</span>
-                                <span data-lang="fr">Réserver &rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Event 4 -->
-                <article class="magazine-item">
-                    <div class="event-image">
-                        <img src="./src/assets/night ambiance.jpg" alt="Fashion Week">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-date">
-                            <span class="day">05</span>
-                            <span class="month">SEP</span>
-                        </div>
-                        <h3>
-                            <span data-lang="en">Fashion Week: Runway Show</span>
-                            <span data-lang="fr">Fashion Week : Défilé</span>
-                        </h3>
-                        <p class="event-desc">
-                            <span data-lang="en">Presentation of the new Fall collection. The brutalist architecture
-                                of the castle contrasts with the delicate fabrics in this invitation-only
-                                showcase.</span>
-                            <span data-lang="fr">Présentation de la nouvelle collection Automne. L'architecture
-                                brutaliste du château contraste avec les tissus délicats lors de cette présentation
-                                sur invitation.</span>
-                        </p>
-                        <div class="event-meta">
-                            <span class="event-tag">
-                                <span data-lang="en">Invitation Only</span>
-                                <span data-lang="fr">Sur Invitation</span>
-                            </span>
-                            <span class="status-private">
-                                <span data-lang="en">Private</span>
-                                <span data-lang="fr">Privé</span>
-                            </span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
+            <div class="magazine-layout" id="events-container">
+                <!-- Events will be loaded here -->
+                <div style="text-align: center; padding: 4rem;">
+                    <p>Loading events...</p>
+                </div>
             </div>
         </section>
     </main>
+
+    <script type="module">
+        import { getEvents, urlFor } from './src/scripts/sanity.js';
+
+        async function loadEvents() {
+            console.log('Starting loadEvents...');
+            const container = document.getElementById('events-container');
+            try {
+                console.log('Fetching events from Sanity...');
+                const events = await getEvents();
+                console.log('Events fetched:', events);
+
+                if (events.length === 0) {
+                    console.log('No events found.');
+                    container.innerHTML = '<div style="text-align: center; padding: 4rem;"><p>No events scheduled yet.</p></div>';
+                    return;
+                }
+
+                container.innerHTML = events.map(event => {
+                    const date = new Date(event.date);
+                    const day = date.getDate().toString().padStart(2, '0');
+                    const month = date.toLocaleString('default', { month: 'short' });
+
+                    const imageUrl = event.image ? urlFor(event.image).width(800).url() : '';
+
+                    return `
+                <article class="magazine-item">
+                    <div class="event-image">
+                        ${imageUrl ? `<img src="${imageUrl}" alt="${event.title.en}">` : '<div style="background: #eee; height: 100%;"></div>'}
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="day">${day}</span>
+                            <span class="month">${month}</span>
+                        </div>
+                        <h3>
+                            <span data-lang="en">${event.title.en}</span>
+                            <span data-lang="fr">${event.title.fr || event.title.en}</span>
+                        </h3>
+                        ${event.artist ? `<p class="event-artist">${event.artist}</p>` : ''}
+                        <p class="event-desc">
+                            <span data-lang="en">${event.description.en}</span>
+                            <span data-lang="fr">${event.description.fr || event.description.en}</span>
+                        </p>
+                        <div class="event-meta">
+                            <span class="event-tag">
+                                <span data-lang="en">${event.status === 'private' ? 'Private' : 'Public'}</span>
+                                <span data-lang="fr">${event.status === 'private' ? 'Privé' : 'Public'}</span>
+                            </span>
+                            ${event.price ? `<span class="event-price">${event.price}€</span>` : ''}
+                            ${event.status === 'sold-out' ? `
+                            <span class="status-sold-out">
+                                <span data-lang="en">Sold Out</span>
+                                <span data-lang="fr">Complet</span>
+                            </span>` : ''}
+                            ${event.link ? `
+                            <a href="${event.link}" class="btn-link">
+                                <span data-lang="en">Book Tickets &rarr;</span>
+                                <span data-lang="fr">Réserver &rarr;</span>
+                            </a>` : ''}
+                        </div>
+                    </div>
+                </article>
+                    `;
+                }).join('');
+
+            } catch (error) {
+                console.error('Error loading events:', error);
+                container.innerHTML = '<div style="text-align: center; padding: 4rem;"><p>Error loading events.</p></div>';
+            }
+        }
+
+        loadEvents();
+    </script>
 
     <footer class="footer">
         <div class="container">
